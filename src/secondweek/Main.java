@@ -15,11 +15,11 @@ public class Main {
 		Vim v1=new Vim(1);
 		Vim v2=new Vim(2);
 		//按照排好序的任务分别取出进行任务执行
-		firstStep f1=new firstStep(tasks[0], v1, v2);
-		f1.complete();
-		firstStep f2=new firstStep(tasks[1], v1, v2);
-		f2.complete();
-		firstStep f3=new firstStep(tasks[2], v1, v2);
-		f3.complete();
+		ChooseSuit f1=new ChooseSuit(tasks[0], v1, v2);
+		f1.completeVim();
+		ChooseSuit f2=new ChooseSuit(tasks[1], v1, v2);
+		f2.completeVim();
+		ChooseSuit f3=new ChooseSuit(tasks[2], v1, v2);
+		f3.completeVim();
 	}
 }
