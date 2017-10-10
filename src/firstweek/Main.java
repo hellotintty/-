@@ -1,6 +1,6 @@
 package firstweek;
 import java.util.Scanner;
-
+//做一次git的测试
 public class Main {
 	public static void main(String[] arge) throws Exception {
 		Scanner in=new Scanner(System.in);
