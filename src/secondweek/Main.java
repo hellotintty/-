@@ -1,5 +1,7 @@
 package secondweek;
-
+/*
+ * Ö÷·½·¨
+ */
 import java.util.Arrays;
 
 public class Main {

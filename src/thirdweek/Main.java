@@ -1,4 +1,7 @@
 package thirdweek;
+/*
+ * 主方法类，包括流程
+ */
 import java.util.Arrays;
 /*
  * 婚姻匹配问题

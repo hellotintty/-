@@ -1,4 +1,7 @@
 package secondweek;
+/*
+ * 定义虚拟机和任务对象
+ */
 public class Object {
 
 }

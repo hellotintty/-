@@ -1,5 +1,7 @@
 package secondweek;
-
+/*
+ * 主要操作步骤
+ */
 public class ChooseSuit {
 	Task t;
 	Vim v1,v2;
