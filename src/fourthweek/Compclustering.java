@@ -18,7 +18,7 @@ public class Compclustering {
 		this.S=objects;
 		this.temp=temp;
 	}
-	//SC（list)：相容簇，Cnew：每一次生成的相容集 ，D：关系度量，S（objects)：对象集，&（temp）：阈值
+	//SC（list)：相容簇，Cnew：每一次生成的相容集 ，D：关系度量，S：对象集，&（temp）：阈值
 	public ArrayList<ArrayList> complete() {
 		//当S不为空集时，对任意x属于S，都有x传入Cnew,S中减去x这个值
 		while(S.size()!=0) {			//while S!=null do 对任意x属于S；x传入Cnew，S=S-x
@@ -36,7 +36,8 @@ public class Compclustering {
 				}
 				else System.out.println(x.name+"与"+S.get(i).name+"不合适");
 			}
-			while(Sx.size()!=0) {		//ｗｈｉｌｅＳ（ｘ）≠null ｄｏ 　对任意ｚ∈Ｓ（ｘ）；Ｃｎｅｗ←ｚ；Ｓ（ｘ）＝Ｓ（ｘ）－｛ｚ｝； 　Ｓ′＝Ｓ－Ｃｎｅｗ；
+			//ｗｈｉｌｅＳ（ｘ）≠null ｄｏ 　对任意ｚ∈Ｓ（ｘ）；Ｃｎｅｗ←ｚ；Ｓ（ｘ）＝Ｓ（ｘ）－｛ｚ｝； 　Ｓ′＝Ｓ－Ｃｎｅｗ；
+			while(Sx.size()!=0) {		
 				Cnew.add(Sx.get(0));
 				System.out.println("Cnew中新增"+Sx.get(0).name);
 				Sx.remove(0);
@@ -52,17 +53,19 @@ public class Compclustering {
 					if(n==Cnew.size()) {
 						Cnew.add(Sxx.get(i));
 						System.out.println("Cnew中新增"+Sxx.get(i).name);
+						Sx.remove(Sxx.get(i));  				//如果有添加要删除Sx中的此对象，避免重复
 					}
 				}
 			}
-			if(list.size()==0) {		//判断List是否为空，若为空，直接将Cnew添加
+			//判断List是否为空，若为空，直接将Cnew添加
+			if(list.size()==0) {		
 				ArrayList<Object> copyCnew=new ArrayList<>();
 				copyCnew.addAll(Cnew);
 				list.add(copyCnew);
 				Cnew.clear();
 			}
-			
-			else {						//否则与List中每个小List做比较看是否为子集
+			//否则说明List中有其他链表，故而将Cnew与List中每个小List做比较看是否为子集
+			else {						
 				int count=0;
 				for(int i=0;i<list.size();i++) {
 					ArrayList<Object> templist=new ArrayList<Object>();

@@ -13,7 +13,11 @@ public class ChooseSuit {
 		if (t.AT>=v1.count) 	 v1.flag=true;
 		else if(t.AT>=v2.count)  v2.flag=true;
 	}
-	//判断虚拟机是否空闲
+	/*
+	 * 判断虚拟机是否空闲
+	 * 先判断虚拟机是否空闲，若空闲则计算需要的能搞，选取低能耗的虚拟机运行任务
+	 */
+	
 	public void completeVim() {
 		if(v1.flag==true) {
 			if(v2.flag==true) {

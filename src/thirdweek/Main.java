@@ -48,33 +48,40 @@ public class Main {
 					if(men[j].rank[i]==women[m].ID) {	//选取合适的女性
 						if(women[m].flag==false) {		//女性空闲
 							women[m].flag=true;
-							women[m].currentObject=j+1;
+							women[m].currentObject=j;
 							men[j].flag=true;
 							System.out.println("男"+(j+1)+"和女"+(m+1)+"正在约会.");
 						}
 						else if(women[m].flag==true) {		//女性正在约会
 							int currentLocal=0,manLocal = 0;			//查找现任对象和竞争对象是女性的第几人选
 							for(int n=0;n<sum;n++) {
-								if(women[m].rank[n]==women[m].currentObject) {
+								if(women[m].rank[n]==women[m].currentObject+1) {
 									currentLocal=n;
+									System.out.println("现任对象排第"+n);
 								}
 								else if(women[m].rank[n]==(j+1)) {
 									manLocal=n;
+									System.out.println("竞争者排第"+n);
 								}
 							}
 							if(manLocal>currentLocal) {
 								System.out.println("男"+(j+1)+"追求女"+(m+1)+",女"+(m+1)+"正在和男"+women[m].currentObject+"约会，遂拒绝。");
 							}
 							else if(manLocal<currentLocal){
-								men[currentLocal-1].flag=false;
+								men[women[m].currentObject].flag=false;
 								men[j].flag=true;
-								System.out.println("虽然女"+(m+1)+"正在和男"+women[m].currentObject+"约会，但是男"+(j+1)+"在她心里更好，遂跟男"+(j+1)+"约会去了。");
-								women[m].currentObject=j+1;
+								System.out.println("虽然女"+(m+1)+"正在和男"+(women[m].currentObject+1)+"约会，但是男"+(j+1)+"在她心里更好，遂跟男"+(j+1)+"约会去了。");
+								women[m].currentObject=j;
 							}
 						}
 					}
 				}
 			}
+			System.out.println("第"+(i+1)+"次匹配结束");
+			System.out.println("——————————————————————————————————");
+		}
+		for(int i=0;i<sum;i++) {
+			System.out.println("女"+women[i].ID+"最终选择和男"+(women[i].currentObject+1)+"在一起~");
 		}
 	}
 }
