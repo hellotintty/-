@@ -27,6 +27,7 @@ public class Main {
 		Compclustering compclustering=new Compclustering(D1, objects, temp);
 		ArrayList<ArrayList> list=new ArrayList<ArrayList>();
 		list=compclustering.complete();
+		System.out.print("SC:");
 		System.out.print("{");
 		for(int i=0;i<list.size();i++) {
 			System.out.print("{ ");
