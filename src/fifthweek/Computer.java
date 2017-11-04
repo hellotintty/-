@@ -33,6 +33,7 @@ public class Computer {
 			time=in.nextInt();
 		}
 	}
+	//根据传入的时间返回调度成本
 	public int getCost(int time) {
 		if(time<p) {
 			return cost[0];

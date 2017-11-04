@@ -1,5 +1,7 @@
 package fifthweek;
-
+/*
+ * 选取成本最低的调度策略，成本变动类机票价格
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,7 +23,7 @@ public class Application {
 				for(Computer computer2:computers) {
 					for(Computer computer3:computers) {
 						String order=computer.ID+"-"+computer1.ID+"-"+computer2.ID+"-"+computer3.ID;
-						int cost=computer.getCost(computer.time)+computer1.getCost(computer1.time)+computer2.getCost(computer2.time)+computer3.getCost(computer3.time);
+						int cost=computer.getCost(0)+computer1.getCost(computer.time)+computer2.getCost(computer.time+computer1.time)+computer3.getCost(computer.time+computer1.time+computer2.time);
 						int time=computer.time+computer1.time+computer2.time+computer3.time;
 						System.out.print(order+"..........."+cost+"............");
 						System.out.println(time);
@@ -32,6 +34,7 @@ public class Application {
 			}
 		}
 		System.out.println("______________________________________________");
+		//对表中所有数据按照优先成本，次之时间的规则排序
 		Collections.sort(costs);
 		System.out.print("成本最低的解为:");
 		System.out.print(costs.get(0).order+".........");

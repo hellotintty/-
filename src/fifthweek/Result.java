@@ -9,6 +9,7 @@ public class Result implements Comparable{
 		this.cost=cost;
 		this.time=time;
 	}
+	//以成本为依据排序，如果成本相同，则按需要时间排序
 	@Override
 	public int compareTo(Object o) {
         Result s = (Result) o;  
