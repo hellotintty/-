@@ -2,6 +2,7 @@ package fourthweek;
 /*
  * 相容关系的聚类算法
  */
+
 import java.util.ArrayList;
 
 public class Compclustering {

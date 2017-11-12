@@ -1,9 +1,13 @@
 package fourthweek;
-import java.util.ArrayList;
 /*
  * 相容关系的聚类算法
  */
+
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.print.attribute.standard.PrinterLocation;
+
 public class Main {
 	public static void main(String[] arge) {
 		CreatObjects cob=new CreatObjects();

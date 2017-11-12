@@ -2,6 +2,7 @@ package fourthweek;
 /*
  * 创建关系度量类
  */
+
 import java.util.Scanner;
 
 public class CreatD {

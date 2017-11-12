@@ -2,6 +2,7 @@ package fourthweek;
 /*
  * 创建对象集类
  */
+
 import java.util.ArrayList;
 
 public class CreatObjects {
