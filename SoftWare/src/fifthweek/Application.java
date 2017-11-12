@@ -8,6 +8,7 @@ import java.util.Collections;
 public class Application {
 	public static void main(String[] arge) {
 		ArrayList<Result> costs=new ArrayList<>();		//存储每一种解的成本最后进行比较
+		//创建四个存储区对象
 		Computer c1=new Computer(1, 10, 50, 100, 150, 230);
 		Computer c2=new Computer(2, 13, 47, 52, 180, 201);
 		Computer c3=new Computer(3, 5, 59, 102, 147, 190);
@@ -20,15 +21,21 @@ public class Application {
 		//穷举所有可能解
 		for(Computer computer:computers) {
 			for(Computer computer1:computers) {
-				for(Computer computer2:computers) {
-					for(Computer computer3:computers) {
-						String order=computer.ID+"-"+computer1.ID+"-"+computer2.ID+"-"+computer3.ID;
-						int cost=computer.getCost(0)+computer1.getCost(computer.time)+computer2.getCost(computer.time+computer1.time)+computer3.getCost(computer.time+computer1.time+computer2.time);
-						int time=computer.time+computer1.time+computer2.time+computer3.time;
-						System.out.print(order+"..........."+cost+"............");
-						System.out.println(time);
-						Result result=new Result(order, cost, time);
-						costs.add(result);
+				if(computer.ID!=computer1.ID) {
+					for(Computer computer2:computers) {
+						if(computer2.ID!=computer.ID&&computer2.ID!=computer1.ID) {
+							for(Computer computer3:computers) {
+								if(computer3.ID!=computer.ID&&computer3.ID!=computer1.ID&&computer3.ID!=computer2.ID) {
+									String order=computer.ID+"-"+computer1.ID+"-"+computer2.ID+"-"+computer3.ID;
+									int cost=computer.getCost(0)+computer1.getCost(computer.time)+computer2.getCost(computer.time+computer1.time)+computer3.getCost(computer.time+computer1.time+computer2.time);
+									int time=computer.time+computer1.time+computer2.time+computer3.time;
+									System.out.print(order+"..........."+cost+"............");
+									System.out.println(time);
+									Result result=new Result(order, cost, time);
+									costs.add(result);
+								}
+							}
+						}
 					}
 				}
 			}

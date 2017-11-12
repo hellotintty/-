@@ -1,13 +1,11 @@
 package fourthweek;
 import java.util.ArrayList;
-import java.util.Objects;
 /*
  * 相容关系的聚类算法
  */
 import java.util.Scanner;
 public class Main {
 	public static void main(String[] arge) {
-		Object A=new Object();
 		CreatObjects cob=new CreatObjects();
 		cob.setName();
 		ArrayList<Object> objects=new ArrayList<Object>();
@@ -22,9 +20,11 @@ public class Main {
 			}
 			System.out.println("");
 		}
-		System.out.print("请输入阈值：");
-		int temp=in.nextInt();
-		Compclustering compclustering=new Compclustering(D1, objects, temp);
+		System.out.print("请输入阈值α：");
+		int temp1=in.nextInt();
+		System.out.print("请输入阈值β：");
+		int temp2=in.nextInt();
+		Compclustering compclustering=new Compclustering(D1, objects, temp1, temp2);
 		ArrayList<ArrayList> list=new ArrayList<ArrayList>();
 		list=compclustering.complete();
 		System.out.print("SC:");
